@@ -21,21 +21,21 @@ const galleryItem = ({ url, alt }) =>
 const galleryMarkup = images.reduce((acc, item) => acc + galleryItem(item), "");
 
 
-const galleryList = document.querySelector(".gallery");
-galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
-galleryList.setAttribute("style", "list-style-type:none; display: flex;");
+// const galleryList = document.querySelector(".gallery");
+// galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
+// galleryList.setAttribute("style", "list-style-type:none; display: flex;");
 
-console.log(galleryList)
+// console.log(galleryList)
 
-// const galleryListEl = document.querySelector(".gallery")
+const galleryListEl = document.querySelector(".gallery")
 
-// const makeGallery = ({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>` 
+const makeGallery = ({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>` 
 
-// const galleryItemsEl = images.map(makeGallery)
-// galleryListEl.insertAdjacentHTML("afterbegin", galleryItemsEl);
-// galleryListEl.setAttribute("style", "list-style-type:none; display: flex;")
+const galleryItemsEl = images.map(makeGallery)
+galleryListEl.insertAdjacentHTML("afterbegin", galleryItemsEl);
+galleryListEl.setAttribute("style", "list-style-type:none; display: flex;")
 
-
-// galleryListEl.append(...galleryItemsEl)
-// console.log(galleryListEl)
+galleryListEl.lastChild.remove
+galleryListEl.append(...galleryItemsEl)
+console.log(galleryListEl)
 
